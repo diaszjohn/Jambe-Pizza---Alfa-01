@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 1. SEÇÃO DE PIZZAS & SOBREMESAS
     const tituloPizzas = document.createElement("h3");
-    tituloPizzas.textContent = "🍕 Nossas Pizzas & Sobremesas";
+    tituloPizzas.textContent = "Nossas Pizzas";
     tituloPizzas.style.cssText = "grid-column: 1 / -1; color: var(--cor-destaque); font-size: 1.5rem; margin-top: 10px; border-bottom: 1px solid var(--cor-borda); padding-bottom: 8px;";
     catalogoDiv.appendChild(tituloPizzas);
 
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 2. SEÇÃO DE BEBIDAS GELADAS
     if (configuracao.bebidas && configuracao.bebidas.length > 0) {
         const tituloBebidas = document.createElement("h3");
-        tituloBebidas.textContent = "🥤 Bebidas Geladas";
+        tituloBebidas.textContent = "Bebidas Geladas";
         tituloBebidas.style.cssText = "grid-column: 1 / -1; color: var(--cor-destaque); font-size: 1.5rem; margin-top: 30px; border-bottom: 1px solid var(--cor-borda); padding-bottom: 8px;";
         catalogoDiv.appendChild(tituloBebidas);
 
