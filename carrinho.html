@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho — Jambe Pizza</title>
+    <!-- Favicon para a aba do navegador -->
+    <link rel="icon" href="img/jambepizza.png" type="image/png">
+    
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/configuracao.js" defer></script>
+    <script src="js/regras.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/carrinho.js" defer></script>
+</head>
+<body>
+    <header class="cabecalho"> 
+        <div class="container cabecalho-conteudo"> 
+            <a class="logo-marca" href="index.html">
+                <img src="img/jambepizza.png" alt="Jambe Pizza" class="logo-img-header">
+            </a>
+            <nav aria-label="Navegação principal">
+                <a href="index.html">Início</a>
+                <a href="cardapio.html">Cardápio</a>
+                <a href="carrinho.html" aria-current="page">Carrinho <span data-contador>0</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-content">
+        <div class="titulo-secao">
+            <p class="destaque">Finalize o Pedido</p>
+            <h2>Seu Carrinho e Endereço</h2>
+        </div>
+
+        <div class="colunas-carrinho">
+            <section class="painel-pedido-completo">
+                <h3>Itens Selecionados</h3>
+                <div id="itens-carrinho" class="lista-itens-carrinho"></div>
+                
+                <p id="carrinho-vazio" style="color: #bbb; margin-bottom: 20px;">Seu carrinho está vazio. <a href="cardapio.html" style="color: var(--cor-destaque);">Voltar ao cardápio</a></p>
+                <button id="esvaziar" type="button" class="botao botao-secundario" style="display: none; margin-bottom: 20px;">Esvaziar carrinho</button>
+            </section>
+
+            <section class="painel-pedido-completo">
+                <h3>Dados de Entrega</h3>
+                <form id="formulario" novalidate>
+                    <div class="grupo-input">
+                        <label for="nome">Nome Completo</label>
+                        <input id="nome" type="text" required placeholder="Ex: Maria Souza">
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="bairro">Seu Bairro</label>
+                        <select id="bairro" required>
+                            <option value="">-- Selecione o Bairro --</option>
+                            <option value="pindorama">Pindorama (R$ 5,00)</option>
+                            <option value="sao-judas">São Judas Tadeu (R$ 8,00)</option>
+                            <option value="centro">Centro e Igaraçu (R$ 10,00)</option>
+                            <option value="ilha-grande">Ilha Grande (R$ 18,00)</option>
+                            <option value="nassau">Nassau (R$ 14,00)</option>
+                            <option value="demais">Demais Bairros (R$ 6,00)</option>
+                            <option value="retirada">Retirar no Local (Grátis)</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="endereco">Rua, Número e Complemento</label>
+                        <input id="endereco" type="text" required placeholder="Ex: Av. Principal, 456">
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="pagamento">Forma de Pagamento</label>
+                        <select id="pagamento" required>
+                            <option value="">-- Escolha --</option>
+                            <option value="pix">Pix</option>
+                            <option value="cartao">Cartão (Maquininha)</option>
+                            <option value="dinheiro">Dinheiro</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-input" id="campo-troco" hidden>
+                        <label for="troco">Troco para quanto?</label>
+                        <input id="troco" type="number" min="0" step="0.01" placeholder="Ex: 100">
+                    </div>
+
+                    <div class="recibo-caixa">
+                        <h4>Resumo Financeiro</h4>
+                        <div class="recibo-linha">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">—</span>
+                        </div>
+                        <div class="recibo-linha">
+                            <span>Taxa de Entrega:</span>
+                            <span id="taxa">Escolha o bairro</span>
+                        </div>
+                        <div class="recibo-linha total-destaque">
+                            <span>Total Previsto:</span>
+                            <span id="total">—</span>
+                        </div>
+                    </div>
+
+                    <p id="erro" class="erro" role="alert" tabindex="-1"></p>
+
+                    <button id="revisar" type="submit" class="botao-whatsapp" disabled>
+                        <span>Revisar e Enviar Pedido</span> 🚀
+                    </button>
+                </form>
+
+                <div id="area-revisao" style="display: none; margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                    <h3>Confira a mensagem</h3>
+                    <pre id="mensagem" style="background: #111; padding: 15px; border-radius: 8px; color: #ddd; white-space: pre-wrap; margin-bottom: 15px;"></pre>
+                    <button id="whatsapp" type="button" class="botao-whatsapp">Abrir WhatsApp</button>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
